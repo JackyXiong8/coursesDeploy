@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Adding courses
+        </title>
+    </head>
+    <body>
+        <form action="/create" method="POST">
+            {% csrf_token %}
+            <h3>Add a new course</h3>
+            Name: <input type="text" name="name">
+            Description: <input type="text" name="description">
+            <input type="submit" value="Add">
+        </form>
+        <br><br>
+        <table>
+            <tr>
+                <td>Course Name</td>
+                <td>Description</td>
+                <td>Date Added</td>
+                <td>Actions</td>
+            </tr>
+            {% for x in courses %}
+                {% for i in descriptions %}
+                {% if i.describing.id == x.id %}
+            <tr>
+                <td>{{x.name}}</td>
+                <td>{{i.desc}}</td>
+                <td>{{x.created_at}}</td>
+                <td><a href="/courses/destroy/{{x.id}}">remove</a></td>
+            </tr>
+                {%endif%}
+                {%endfor%}
+            {%endfor%}
+
+        </table>
+
+        </body>
+    </body>
+</html>

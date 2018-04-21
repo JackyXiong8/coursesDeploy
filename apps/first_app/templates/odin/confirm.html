@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Delete a course
+        </title>
+    </head>
+    <body>
+        <h2>
+            Are you sure you wanrt to delete the following course?
+        </h2>
+        <p>Name: {{courseinfo.name}}</p>
+        <p>Description: {{courseinfo.described_by.desc}}</p>
+        <form action="/">
+            <input type="submit" value="No">
+        </form>
+        <form action="/destroy/{{request.session.usersid}}">
+            <input type="submit" value="Yes! I want to delete this">  
+        </form>
+    </body>
+</html>
