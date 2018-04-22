@@ -6,6 +6,11 @@
         </title>
     </head>
     <body>
+            {% if messages %}          
+                {% for message in messages%}             
+                {{ message }}
+                {% endfor %}       
+            {% endif %}
         <form action="/create" method="POST">
             {% csrf_token %}
             <h3>Add a new course</h3>
